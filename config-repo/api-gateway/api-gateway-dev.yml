@@ -2,7 +2,7 @@ spring:
   application:
     name: api-gateway
 server:
-  port: 5555
+  port: 5556
 eureka:
   client:
     service-url:
@@ -29,3 +29,19 @@ zuul:
 
 #zuul默认路由规则 /<serviceId>/** 如果要指定屏蔽的默认路由
 #zuul.ignored-services=
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+
+management:
+  endpoints:
+    enabled-by-default: true
+    beans:
+      enabled: true
+    info:
+      enabled: true
+    web:
+      exposure:
+        include: *
+
